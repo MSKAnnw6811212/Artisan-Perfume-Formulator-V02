@@ -1,0 +1,232 @@
+/* GLOBAL RESET */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #111;
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide Print Root on Screen */
+#print-root {
+  display: none;
+}
+
+/* Scrollbar Utility for Sidebar */
+.custom-scrollbar {
+  scrollbar-gutter: stable;
+}
+
+/* BUTTON STYLES */
+.btn-danger {
+  background-color: #ef4444; /* Red-500 */
+  color: white;
+  border: 1px solid #dc2626;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-danger:hover {
+  background-color: #dc2626; /* Red-600 */
+}
+
+/* INPUT RESETS */
+input, select, textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 13px;
+  box-shadow: none !important;
+}
+
+.lab-input {
+  min-width: 80px; 
+  height: 30px;
+}
+
+/* --- COMPACT INPUT GROUPS --- */
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: white;
+  overflow: hidden;
+  height: 30px;
+  width: max-content;
+  max-width: 110px;
+}
+
+.input-compact {
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  height: 100%;
+  padding: 0 2px;
+  width: 60px;
+  text-align: center;
+  font-weight: 500;
+  color: #111827;
+  outline: none !important;
+}
+
+.input-compact:focus {
+  background: #f0f9ff !important;
+}
+
+.spinner-btn {
+  background: #f3f4f6;
+  border: none;
+  width: 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: #6b7280;
+  font-size: 14px;
+  user-select: none;
+  transition: all 0.1s;
+  line-height: 1;
+}
+
+.spinner-btn:hover {
+  background: #e5e7eb;
+  color: #111;
+}
+
+.spinner-btn:active {
+  background: #d1d5db;
+}
+
+.spinner-btn.minus {
+  border-right: 1px solid #e5e7eb;
+}
+
+.spinner-btn.plus {
+  border-left: 1px solid #e5e7eb;
+}
+
+/* --- TABLE CONTAINER SCROLLING (SCREEN) --- */
+.table-container {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  background: white;
+  border: 1px solid #e5e7eb;
+}
+
+/* TABLE LAYOUT */
+table {
+  width: 100%;
+  border-collapse: separate; 
+  border-spacing: 0;
+  min-width: 1100px; /* Force scroll on desktop screen if needed */
+}
+
+th, td {
+  padding: 8px 4px;
+  border-bottom: 1px solid #f3f4f6;
+  white-space: nowrap;
+}
+
+/* --- STICKY NAME COLUMN --- */
+.name-col {
+  position: sticky;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 10;
+  box-shadow: 2px 0 5px -2px rgba(0,0,0,0.1); 
+  border-right: 1px solid #e5e7eb;
+  min-width: 180px;
+  max-width: 250px;
+  padding-left: 10px;
+}
+
+thead th:nth-child(2) {
+  position: sticky;
+  left: 0;
+  background-color: #f9fafb; 
+  z-index: 11;
+  box-shadow: 2px 0 5px -2px rgba(0,0,0,0.1);
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Accordion Marker Transition */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Checklist Headers (Mobile) */
+.checklist-header {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+/* --- PRINT VIEW --- */
+@media print {
+  @page { margin: 12mm; }
+  
+  body { 
+    background: #fff !important; 
+    color: #000 !important; 
+  }
+  
+  /* Hide normal app content */
+  body > :not(#print-root) {
+    display: none !important;
+  }
+  
+  /* Show Print Sheet */
+  #print-root {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
+    z-index: 9999;
+  }
+
+  .print-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 10pt; 
+  }
+  
+  .print-table th, .print-table td { 
+    border: 1px solid #ddd; /* Light borders */
+    padding: 4px 6px; 
+    vertical-align: middle; 
+  }
+  
+  /* Ensure colors print correctly */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

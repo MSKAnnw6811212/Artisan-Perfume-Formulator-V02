@@ -1,0 +1,5 @@
+{
+  "name": "Artisan Perfume Formulator V02",
+  "description": "Professional formulation tool with recursive dilution logic, IFRA compliance checking, and NCS (Natural Complex Substance) breakdown analysis.",
+  "requestFramePermissions": []
+}
